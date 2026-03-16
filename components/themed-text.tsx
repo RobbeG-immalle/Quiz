@@ -5,7 +5,7 @@ import { useThemeColor } from '@/hooks/use-theme-color';
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
-  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
+  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link' | 'muted';
 };
 
 export function ThemedText({
@@ -26,6 +26,7 @@ export function ThemedText({
         type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
         type === 'subtitle' ? styles.subtitle : undefined,
         type === 'link' ? styles.link : undefined,
+        type === 'muted' ? styles.muted : undefined,
         style,
       ]}
       {...rest}
@@ -35,26 +36,41 @@ export function ThemedText({
 
 const styles = StyleSheet.create({
   default: {
-    fontSize: 16,
-    lineHeight: 24,
+    fontFamily: 'Nunito_400Regular',
+    fontSize: 17,
+    lineHeight: 26,
+    letterSpacing: -0.2,
   },
   defaultSemiBold: {
-    fontSize: 16,
-    lineHeight: 24,
-    fontWeight: '600',
+    fontFamily: 'Nunito_700Bold',
+    fontSize: 17,
+    lineHeight: 25,
+    letterSpacing: -0.3,
   },
   title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    lineHeight: 32,
+    fontFamily: 'Nunito_800ExtraBold',
+    fontSize: 36,
+    lineHeight: 40,
+    letterSpacing: -1,
   },
   subtitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontFamily: 'Nunito_700Bold',
+    fontSize: 22,
+    lineHeight: 28,
+    letterSpacing: -0.6,
   },
   link: {
-    lineHeight: 30,
+    fontFamily: 'Nunito_700Bold',
     fontSize: 16,
-    color: '#0a7ea4',
+    lineHeight: 24,
+    letterSpacing: -0.2,
+    color: '#E5481D',
+  },
+  muted: {
+    fontFamily: 'Nunito_600SemiBold',
+    fontSize: 14,
+    lineHeight: 20,
+    letterSpacing: 0.1,
+    opacity: 0.68,
   },
 });
